@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Straventis — Turning vision into execution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    a, a:link, a:visited {
+      text-decoration: none !important;
+    }
+    :root{
+--bg0:#05070b;             /* deep black-blue */
+      --bg1:#0b0f16;             /* gradient top */
+      --bg2:#0e141d;             /* gradient bottom */
+      --ink:#EDEDED;             /* light body text */
+      --navy:#1A1F2E;            /* dark navy (cards, lines) */
+      --brand-blue:#3E7BC5;      /* wordmark + tagline on dark */
+      --teal:#00B3B8;            /* spiral + accents */
+      --sky:#58AFFF;             /* soft highlights (optional) */
+      --red:#FF3030;             /* red dots on dark */
+      --card:#0F1620;            /* card background */
+      --card-border:#283444;
+      --muted:#B9C4CF;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--ink);
+      background: radial-gradient(1200px 600px at 50% -10%, #0c1420 0%, transparent 60%),
+                  radial-gradient(900px 600px at 85% 20%, #0a1220 0%, transparent 55%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+    /* subtle background texture lines (very faint) */
+    .bg-lines::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        radial-gradient(1000px 700px at 70% -5%, rgba(0,179,184,.08), transparent 60%),
+        radial-gradient(700px 500px at 15% 15%, rgba(88,175,255,.06), transparent 60%);
+      pointer-events:none;
+      filter: blur(2px);
+    }
+    .wrap{max-width:none; width:100%; margin:0 auto; padding:24px 24px 80px}
+header{display:flex; flex-direction:column; align-items:center; gap:6px; margin:0 0 12px}
+.logo{display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center}
+    .wordmark{font-weight:700; letter-spacing:.02em; font-size:clamp(56px, 7.875vw, 98px); color:var(--brand-blue)}
+    .tagline{font-weight:500; color:var(--brand-blue); font-size:clamp(28px,3.675vw,38.5px)}
+    .mission{
+      max-width:860px; margin:22px auto 30px; text-align:center; padding:0 20px;
+color:var(--ink); opacity:.92; line-height:1.55; font-size:clamp(26.25px,3.325vw,31.5px)
+    }
+    .content-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+.cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:6px;
+      padding:12px 24px;
+      border-radius:10px;
+      min-width: 280px;
+      min-height: 48px;
+      border:1px solid #2b3a50;
+      color:#dfe8f2;
+      text-decoration:none;
+      font-weight:500;
+      transition:.25s ease;
+      background:rgba(255,255,255,0.02);
+      text-align:center;
+      box-sizing:border-box;
+    }
+.cta:hover{transform:translateY(-1px); border-color:#3c4f6b; box-shadow:0 8px 24px rgba(0,179,184,.12)}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid var(--card-border); border-radius:16px;
+      padding:18px 18px 20px;
+      box-shadow:0 8px 28px rgba(0,0,0,.25); position:relative; overflow:hidden;
+      transition:.25s ease; cursor:pointer;
+      height: 280px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 38px rgba(0,0,0,.35);
+  border-color:#38506a;
+  background:rgba(88, 175, 255, 0.1);
+}
+@media (max-width: 768px) {
+      main > div {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 100% !important;
+        max-width: 400px;
+        margin-bottom: 20px;
+      }
+      .logo img {
+        max-width: 90%;
+        height: auto;
+      }
+      .mission {
+        text-align: center !important;
+      }
+      .cta {
+        margin: 0 auto;
+      }
+    }
+.card h3{
+      margin:2px 0 8px; color:var(--teal);
+      font-size:clamp(31.5px,3.85vw,38.5px);
+      line-height:1.25;
+      text-align:center;
+    }
+.card p{
+      margin:8px 0 6px; color:var(--muted);
+      font-size:clamp(24.5px,3.15vw,28px);
+      text-align:center;
+      max-width: 90%;}
+    .card .underline{
+      display: none;
+    }
+footer{
+      margin-top:56px; padding:26px 0 10px; border-top:1px solid #233042; color:#b4c0cc;
+      font-size:24.5px; text-align:center
+    }
+    .logo-highlight {
+      background: linear-gradient(90deg, #3E7BC5, #58AFFF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 500;
+    }
+/* reduce motion for users pref */
+    @media (prefers-reduced-motion: reduce) {
+      .cta, .card{transition:none}
+    }
+  </style>
+</head>
+<body class="bg-lines">
+  <div class="wrap">
+    <div class="content-container">
+<header style="margin-left: -15px">
+<div class="logo">
+<!-- Modern abstract vortex logo with gradient -->
+        <img src="https://huggingface.co/spaces/AR1202/vision-vortex-navigator/resolve/main/images/Starventis -AR editable BlackBackGround-web.svg" alt="Straventis logo" width="432" style="margin-top: -20px; max-width: 100%; height: auto;">
+<div class="wordmark" aria-hidden="true" style="display:none">STRAVENTIS</div>
+</div>
+      <p class="mission" style="text-align: center; max-width: 860px; margin: 22px auto 30px; padding: 0 20px; box-sizing: border-box;">
+Straventis helps organizations connect strategy and innovation to achieve lasting growth.
+        <div style="height: 12px;"></div>
+        <span style="font-size: 22px; display: inline-block; line-height: 1.5;">
+We work with leadership, product, and innovation teams to optimize portfolios and identify,
+validate, and scale new opportunities.<br>
+We develop and integrate strategic clarity,
+market insight, and venture discipline.
+</span>
+</p>
+<div style="text-align: center;">
+  <a class="cta" href="#focus">Discover Our Approach</a>
+</div>
+</header>
+    <main id="focus" aria-label="Focus areas" style="max-width: 1000px; margin-left: auto; margin-right: auto" class="hovered-element">
+      <div style="display: flex; justify-content: center; margin-bottom: 18px; min-height: 300px;" class="hovered-element">
+        <a class="card hovered-element" href="#diagnosis" style="width: calc(50% - 9px);">
+          <h3>Readiness Assessment & Organizational Alignment</h3>
+          <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+          <p>Assessing organizational, portfolio, and technical readiness for successful deployment and growth.</p>
+        </a>
+      </div>
+      <div style="display: flex; justify-content: center; gap: 18px; margin-bottom: 18px; min-height: 300px;" class="hovered-element">
+        <a class="card hovered-element" href="#innovation" style="flex: 1;">
+<h3>Innovation &amp; Growth Strategy</h3>
+<div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+<p>Turning strategic intent into actionable growth portfolios.</p>
+</a>
+        <a class="card hovered-element" href="#voc" style="flex: 1;">
+<h3>Voice of Customer</h3>
+<div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+<p>Translating market signals into focused innovation direction.</p>
+</a>
+      </div>
+      <div style="display: flex; justify-content: center; gap: 18px; min-height: 300px;">
+        <a class="card hovered-element" href="#gtm" style="flex: 1;">
+<h3>Go-to-Market Strategy &amp; Market Exploration</h3>
+<div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+<p>From insight to impact - testing and validating where to play.</p>
+</a>
+        <a class="card hovered-element" href="#venture" style="flex: 1;">
+<h3>Venture Exploration &amp; Assessment</h3>
+<div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+<p>Evaluating new business opportunities through structured learning.</p>
+</a>
+      </div>
+</main>
+    <footer>
+      <span class="logo-highlight">Straventis</span> — <span class="logo-highlight">Stra</span>tegy • <span class="logo-highlight">Vent</span>ure <span style="color:var(--red)">•</span> <span class="logo-highlight">I</span>nnovation • <span class="logo-highlight">S</span>ustainability &nbsp;|&nbsp;
+<a href="mailto:contact@stravent.is" style="color:#cfe3ff">contact@stravent.is</a>
+&nbsp;|&nbsp; www.stravent.is
+    </footer>
+</div>
+  </div>
+
+</body>
+</html>
