@@ -1,13 +1,10 @@
 ---
-title: Vision Vortex Navigator 🌀
+title: Straventi - Turning vision into execution
 colorFrom: red
 colorTo: blue
-emoji: 🐳
+emoji: 
 sdk: static
 pinned: false
 tags:
-  - deepsite-v3
----
+ 
 
-# Welcome to your new DeepSite project!
-This project was created with [DeepSite](https://huggingface.co/deepsite).
