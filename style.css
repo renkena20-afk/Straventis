@@ -1,1 +1,58 @@
+/* --- Engagement examples (details/summary) --- */
+.engagement details{
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 0 0 18px 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  box-shadow: 0 8px 28px rgba(0,0,0,.25);
+}
 
+.engagement summary{
+  cursor: pointer;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.4;
+  list-style: none;
+  outline: none;
+}
+
+.engagement summary::-webkit-details-marker{
+  display: none;
+}
+
+.engagement summary{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.engagement summary::before{
+  content: "›";
+  color: var(--muted);
+  font-size: 28px;
+  line-height: 1;
+  transform: translateY(-2px) rotate(0deg);
+  transition: transform .18s ease;
+  flex: 0 0 auto;
+}
+
+.engagement details[open] summary::before{
+  transform: translateY(-2px) rotate(90deg);
+}
+
+.engagement details[open] summary{
+  margin-bottom: 12px;
+}
+
+.engagement ul{
+  padding-left: 22px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.engagement li{ margin-bottom: 12px; }
+.engagement li:last-child{ margin-bottom: 0; }
