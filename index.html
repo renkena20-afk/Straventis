@@ -2,7 +2,348 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" /><!doctype html>
+<html lang="en"><!doctype html>
 <html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Straventis — Turning vision into execution</title>
+
+  <!-- External CSS (your engagement styling lives here) -->
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    a, a:link, a:visited { text-decoration: none !important; }
+
+    :root{
+      --bg0:#05070b;
+      --bg1:#0b0f16;
+      --bg2:#0e141d;
+      --ink:#EDEDED;
+      --navy:#1A1F2E;
+      --brand-blue:#3E7BC5;
+      --teal:#00B3B8;
+      --sky:#58AFFF;
+      --red:#FF3030;
+      --card:#0F1620;
+      --card-border:#283444;
+      --muted:#B9C4CF;
+    }
+
+    html,body{height:100%}
+
+    body{
+      margin:0;
+      font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--ink);
+      background: radial-gradient(1200px 600px at 50% -10%, #0c1420 0%, transparent 60%),
+                  radial-gradient(900px 600px at 85% 20%, #0a1220 0%, transparent 55%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .bg-lines::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        radial-gradient(1000px 700px at 70% -5%, rgba(0,179,184,.08), transparent 60%),
+        radial-gradient(700px 500px at 15% 15%, rgba(88,175,255,.06), transparent 60%);
+      pointer-events:none;
+      filter: blur(2px);
+    }
+
+    .wrap{max-width:none; width:100%; margin:0 auto; padding:24px 24px 80px}
+
+    header{display:flex; flex-direction:column; align-items:center; gap:6px; margin:0 0 12px}
+
+    .logo{display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center}
+
+    .wordmark{font-weight:700; letter-spacing:.02em; font-size:clamp(56px, 7.875vw, 98px); color:var(--brand-blue)}
+    .tagline{font-weight:500; color:var(--brand-blue); font-size:clamp(28px,3.675vw,38.5px)}
+
+    .mission{
+      max-width:860px; margin:22px auto 30px; text-align:center; padding:0 20px;
+      color:var(--ink); opacity:.92; line-height:1.55; font-size:clamp(26.25px,3.325vw,31.5px)
+    }
+
+    .content-container{
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:6px;
+      padding:12px 24px;
+      border-radius:10px;
+      min-width: 280px;
+      min-height: 48px;
+      border:1px solid #2b3a50;
+      color:#dfe8f2;
+      text-decoration:none;
+      font-weight:500;
+      transition:.25s ease;
+      background:rgba(255,255,255,0.02);
+      text-align:center;
+      box-sizing:border-box;
+    }
+    .cta:hover{transform:translateY(-1px); border-color:#3c4f6b; box-shadow:0 8px 24px rgba(0,179,184,.12)}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid var(--card-border); border-radius:16px;
+      padding:18px 18px 20px;
+      box-shadow:0 8px 28px rgba(0,0,0,.25);
+      position:relative; overflow:hidden;
+      transition:.25s ease; cursor:pointer;
+      height: 280px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 38px rgba(0,0,0,.35);
+      border-color:#38506a;
+      background:rgba(88, 175, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      main > div { flex-direction: column; align-items: center; }
+      .card { width: 100% !important; max-width: 400px; margin-bottom: 20px; }
+      .logo img { max-width: 90%; height: auto; }
+      .mission { text-align: center !important; }
+      .cta { margin: 0 auto; }
+    }
+
+    .card h3{
+      margin:2px 0 8px; color:var(--teal);
+      font-size:clamp(31.5px,3.85vw,38.5px);
+      line-height:1.25;
+      text-align:center;
+    }
+    .card p{
+      margin:8px 0 6px; color:var(--muted);
+      font-size:clamp(24.5px,3.15vw,28px);
+      text-align:center;
+      max-width: 90%;
+    }
+
+    footer{
+      margin-top:56px; padding:26px 0 10px;
+      border-top:1px solid #233042;
+      color:#b4c0cc;
+      font-size:24.5px;
+      text-align:center
+    }
+
+    .logo-highlight{
+      background: linear-gradient(90deg, #3E7BC5, #58AFFF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 500;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cta, .card{transition:none}
+    }
+  </style>
+</head>
+
+<body class="bg-lines">
+  <div class="wrap">
+    <div class="content-container">
+
+      <header style="margin-left: -15px">
+        <div class="logo">
+          <img src="images/Straventis Web-Logo-AR editable BlackBackGround.svg"
+               alt="Straventis logo"
+               width="432"
+               style="margin-top: -20px; max-width: 100%; height: auto;">
+          <div class="wordmark" aria-hidden="true" style="display:none">STRAVENTIS</div>
+        </div>
+
+        <p class="mission" style="text-align: center; max-width: 860px; margin: 22px auto 30px; padding: 0 20px; box-sizing: border-box;">
+          Straventis helps organizations connect strategy and innovation to achieve lasting growth.
+          <div style="height: 12px;"></div>
+          <span style="font-size: 22px; display: inline-block; line-height: 1.5;">
+            We work with leadership, product, and innovation teams to build, optimize, and govern growth portfolios and to identify, validate, and scale new opportunities.<br>
+            We bring strategic clarity, market insight, and venture discipline to translate intent into execution.
+          </span>
+        </p>
+
+        <div style="text-align: center;">
+          <a class="cta" href="#focus">Discover Our Approach</a>
+        </div>
+
+        <div style="text-align:center; margin-top:10px;">
+          <a class="cta" href="#engagements">View Selected Engagements</a>
+        </div>
+      </header>
+
+      <main id="focus" aria-label="Focus areas" style="max-width: 1000px; margin-left: auto; margin-right: auto" class="hovered-element">
+
+        <div style="display: flex; justify-content: center; margin-bottom: 18px; min-height: 350px;" class="hovered-element">
+          <a class="card hovered-element" href="#diagnosis" style="width: calc(50% - 9px); height: auto; min-height: 380px;">
+            <h3>Readiness Assessment &amp; Organizational Alignment</h3>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+            <p>Assessing and aligning organization, portfolio, and technical readiness level to enable successful deployment and scalable growth.</p>
+          </a>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 18px; margin-bottom: 18px; min-height: 300px;" class="hovered-element">
+          <a class="card hovered-element" href="#innovation" style="flex: 1;">
+            <h3>Innovation &amp; Growth Strategy</h3>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px; display:block; flex: 0 0 auto;"></div>
+            <p>Building governed growth portfolios with clear priorities, investment logic, and execution focus.</p>
+          </a>
+
+          <a class="card hovered-element" href="#voc" style="flex: 1;">
+            <h3>Voice of Customer</h3>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px; display:block; flex: 0 0 auto;"></div>
+            <p>Translating customer and segment insight into clear opportunity spaces and portfolio direction.</p>
+          </a>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 18px; min-height: 300px;">
+          <a class="card hovered-element" href="#gtm" style="flex: 1;">
+            <h3>Go-to-Market Strategy &amp; Market Exploration</h3>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px; display:block; flex: 0 0 auto;"></div>
+            <p>Defining where to play and validating growth opportunities through focused market engagement.</p>
+          </a>
+
+          <a class="card hovered-element" href="#venture" style="flex: 1;">
+            <h3>Venture Exploration &amp; Assessment</h3>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px; display:block; flex: 0 0 auto;"></div>
+            <p>Evaluating and de-risking new business opportunities through structured validation and staged investment.</p>
+          </a>
+        </div>
+
+      </main>
+
+      <div class="engagement" style="max-width: 900px; margin: 70px auto 30px; padding: 0 20px;">
+
+        <div id="engagements" style="color: var(--teal); font-size: 28px; font-weight: 600; margin-bottom: 30px; text-align: center;">
+          Selected advisory and leadership engagements
+        </div>
+
+        <!-- 1) Reinforcement -->
+        <div style="margin-bottom: 42px;">
+          <details open>
+            <summary>Restoring differentiation in a commoditizing reinforcement business</summary>
+            <div style="color: var(--muted); font-size: 16px; margin-bottom: 12px;">
+              Refocusing innovation and development to restore differentiation and enable new value propositions in a commoditizing reinforcement business
+            </div>
+            <ul>
+              <li><strong>Situation:</strong><br>
+                Core reinforcement products were facing increasing price pressure and declining differentiation, while development activities were largely focused on incremental product improvements. Several ongoing projects lacked clear linkage to unmet market needs and did not sufficiently strengthen competitive positioning or customer value.
+              </li>
+              <li><strong>Intervention:</strong><br>
+                Reviewed and redefined development programs based on identified unmet market needs and emerging customer priorities. Reframed value propositions and redirected projects from pure product development toward differentiated solution offerings. This included, for example, incorporating material traceability and certification approaches to address emerging sustainability-driven customer requirements, and identifying adjacent opportunities beyond core offerings through systematic and structured market exploration.
+              </li>
+              <li><strong>Outcome:</strong><br>
+                Enabled leadership to reposition development efforts toward clearly differentiated offerings, strengthen customer value propositions, and establish a credible pathway to restore differentiation and support future growth beyond price competition.
+              </li>
+            </ul>
+          </details>
+        </div>
+
+        <!-- 2) DuPont -->
+        <div style="margin-bottom: 42px;">
+          <details>
+            <summary>Transforming a fragmented global pipeline into a market-driven growth roadmap</summary>
+            <div style="color: var(--muted); font-size: 16px; margin-bottom: 12px;">
+              Structuring and prioritizing a fragmented global development pipeline into a market-driven product roadmap
+            </div>
+            <ul>
+              <li><strong>Situation:</strong><br>
+                Product and application development activities were largely opportunistic and regionally driven. Multiple initiatives were running in parallel without a consolidated global view of priorities, market attractiveness, or strategic fit. This limited leverage across regions, reduced focus of regional and central teams, and diluted impact.
+              </li>
+              <li><strong>Intervention:</strong><br>
+                Structured development activities into a unified growth portfolio and coordinated, market-driven pipeline. Defined clear target segments, regrouped and prioritized projects based on market potential and value creation, introduced explicit go/no-go decision criteria, and created a transparent roadmap aligning technical development with global commercial strategy.
+              </li>
+              <li><strong>Outcome:</strong><br>
+                Created strategic focus and alignment across regions, clarified development priorities, and enabled disciplined portfolio steering and faster, more coordinated product introductions in priority segments, contributing to a projected 12% revenue growth in a market growing at approximately 3% CAGR.
+              </li>
+            </ul>
+          </details>
+        </div>
+
+        <!-- 3) €500M+ Portfolio -->
+        <div style="margin-bottom: 42px;">
+          <details>
+            <summary>Restoring pipeline continuity and decision discipline in a €500M+ innovation portfolio</summary>
+            <div style="color: var(--muted); font-size: 16px; margin-bottom: 12px;">
+              Building and governing a €500M+ innovation portfolio to restore pipeline continuity and establish portfolio decision discipline
+            </div>
+            <ul>
+              <li><strong>Situation:</strong><br>
+                A substantial innovation portfolio was in place, with late-stage development projects generally well managed. However, the pipeline was structurally unbalanced: intermediate-stage programs were underrepresented, and early-stage opportunity development was limited and not governed by clear progression criteria. As a result, advanced projects were often kept active longer than warranted, as there were insufficient mid-term successors to replace them, making prioritization and termination decisions difficult and weakening pipeline continuity.
+              </li>
+              <li><strong>Intervention:</strong><br>
+                Restructured the portfolio to establish a coherent pipeline across early, intermediate, and late-stage programs. Introduced a stage-gate process with clear progression criteria and evidence-based decision requirements, and implemented governance enabling leadership to review, prioritize, advance, or stop programs across the entire portfolio. Accelerated selected projects to address mid-term gaps, discontinued others that no longer met strategic and value criteria, and strengthened early-stage opportunity generation.
+              </li>
+              <li><strong>Outcome:</strong><br>
+                Restored pipeline continuity and established disciplined, evidence-based investment steering across a €500M+ portfolio, enabling leadership to make timely continuation, acceleration, and termination decisions, focus resources on the most valuable opportunities, and build a sustainable foundation for future growth.
+              </li>
+            </ul>
+          </details>
+        </div>
+
+        <!-- 4) Deep-tech scale-up -->
+        <div style="margin-bottom: 42px;">
+          <details>
+            <summary>Restoring execution momentum in a deep-tech scale-up</summary>
+            <div style="color: var(--muted); font-size: 16px; margin-bottom: 12px;">
+              Restoring execution momentum and enabling deployment in a deep-tech scale-up
+            </div>
+            <ul>
+              <li><strong>Situation:</strong><br>
+                The technology start-up was stalled in the deployment phase, unable to move toward customer adoption and initial sales. Responsibilities within the team were unclear, decisions were repeatedly revisited, the work environment and motivation were deteriorating, and field activities were not translating into tangible deployment progress.
+              </li>
+              <li><strong>Intervention:</strong><br>
+                Assessed the technical readiness level and diagnosed misalignment between technology maturity and organizational structure. Recommended targeted organizational adjustments and defined a structured field evaluation and market introduction pathway aligned with technology readiness.
+              </li>
+              <li><strong>Outcome:</strong><br>
+                Enabled leadership to restore execution clarity, realign the organization with technology readiness, and establish a credible pathway toward industrial deployment, predictable market introduction, and scalable growth.
+              </li>
+            </ul>
+          </details>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top: 28px;">
+        <a class="cta" href="mailto:contact@stravent.is?subject=Straventis%20%7C%20Intro%20call">Request a short intro call</a>
+      </div>
+
+      <footer>
+        <span class="logo-highlight">Straventis</span> —
+        <span class="logo-highlight">Stra</span>tegy •
+        <span class="logo-highlight">Vent</span>ure
+        <span style="color:var(--red)">•</span>
+        <span class="logo-highlight">I</span>nnovation •
+        <span class="logo-highlight">S</span>ustainability &nbsp;|&nbsp;
+        <a href="mailto:contact@stravent.is" style="color:#cfe3ff">contact@stravent.is</a>
+        &nbsp;|&nbsp; www.stravent.is
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
