@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Straventis — Turning vision into execution</title>
 
-  <!-- External CSS (engagement accordion styling lives here) -->
   <link rel="stylesheet" href="style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,16 +15,16 @@
     a, a:link, a:visited { text-decoration: none !important; }
 
     :root{
-      --bg0:#05070b;             /* deep black-blue */
-      --bg1:#0b0f16;             /* gradient top */
-      --bg2:#0e141d;             /* gradient bottom */
-      --ink:#EDEDED;             /* light body text */
-      --navy:#1A1F2E;            /* dark navy (cards, lines) */
-      --brand-blue:#3E7BC5;      /* wordmark + tagline on dark */
-      --teal:#00B3B8;            /* spiral + accents */
-      --sky:#58AFFF;             /* soft highlights (optional) */
-      --red:#FF3030;             /* red dots on dark */
-      --card:#0F1620;            /* card background */
+      --bg0:#05070b;
+      --bg1:#0b0f16;
+      --bg2:#0e141d;
+      --ink:#EDEDED;
+      --navy:#1A1F2E;
+      --brand-blue:#3E7BC5;
+      --teal:#00B3B8;
+      --sky:#58AFFF;
+      --red:#FF3030;
+      --card:#0F1620;
       --card-border:#283444;
       --muted:#B9C4CF;
     }
@@ -42,7 +41,6 @@
       overflow-x:hidden;
     }
 
-    /* subtle background texture lines (very faint) */
     .bg-lines::before{
       content:"";
       position:fixed; inset:0;
@@ -94,14 +92,62 @@
     }
     .cta:hover{transform:translateY(-1px); border-color:#3c4f6b; box-shadow:0 8px 24px rgba(0,179,184,.12)}
 
+    /* CTA contact tile — turquoise border */
+    .cta-contact{
+      display:block;
+      max-width:600px;
+      margin:40px auto 0;
+      padding:32px 40px;
+      border-radius:16px;
+      border:1px solid var(--teal);
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      box-shadow:0 8px 28px rgba(0,0,0,.25);
+      text-align:center;
+      transition:.25s ease;
+      cursor:pointer;
+      text-decoration:none !important;
+      color:var(--ink);
+    }
+    .cta-contact:hover{
+      background:rgba(0,179,184,0.08);
+      box-shadow:0 14px 38px rgba(0,179,184,.15);
+      transform:translateY(-2px);
+    }
+    .cta-contact h3{
+      margin:0 0 12px;
+      color:var(--teal);
+      font-size:clamp(22px,2.5vw,28px);
+    }
+    .cta-contact p{
+      margin:0 0 20px;
+      color:var(--muted);
+      font-size:clamp(15px,1.8vw,18px);
+      line-height:1.6;
+    }
+    .cta-contact .btn{
+      display:inline-block;
+      padding:10px 24px;
+      border-radius:8px;
+      border:1px solid var(--teal);
+      color:var(--teal);
+      font-weight:600;
+      font-size:clamp(14px,1.6vw,17px);
+      transition:.2s ease;
+    }
+    .cta-contact:hover .btn{
+      background:var(--teal);
+      color:#05070b;
+    }
+
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
       border:1px solid var(--card-border); border-radius:16px;
-      padding:18px 18px 20px;
+      padding:28px 24px;
       box-shadow:0 8px 28px rgba(0,0,0,.25);
       position:relative; overflow:hidden;
       transition:.25s ease; cursor:pointer;
-      height: 280px;
+      height:auto;
+      min-height:180px;
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -113,6 +159,144 @@
       box-shadow:0 14px 38px rgba(0,0,0,.35);
       border-color:#38506a;
       background:rgba(88, 175, 255, 0.1);
+    }
+
+    /* ── BIO SECTION ── */
+    .bio-section{
+      max-width:900px;
+      margin:50px auto 60px;
+      padding:0 20px;
+    }
+
+    .bio-section-label{
+      color:var(--teal);
+      font-size:clamp(18px,2vw,22px);
+      font-weight:600;
+      text-align:center;
+      margin-bottom:28px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .bio-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border:1px solid var(--card-border);
+      border-radius:16px;
+      padding:36px 40px;
+      box-shadow:0 8px 28px rgba(0,0,0,.25);
+    }
+
+    .bio-top{
+      display:flex;
+      gap:36px;
+      align-items:flex-start;
+    }
+
+    .bio-photo{
+      flex-shrink:0;
+      width:160px;
+      height:200px;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid var(--card-border);
+    }
+    .bio-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      filter:grayscale(100%);
+    }
+
+    /* placeholder when no photo */
+    .bio-photo-placeholder{
+      flex-shrink:0;
+      width:160px;
+      height:200px;
+      border-radius:12px;
+      border:1px solid var(--card-border);
+      background:rgba(255,255,255,0.03);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+      padding:10px;
+      box-sizing:border-box;
+    }
+
+    .bio-intro{
+      flex:1;
+    }
+
+    .bio-name{
+      color:var(--teal);
+      font-size:clamp(18px,2vw,22px);
+      font-weight:700;
+      margin:0 0 4px;
+    }
+
+    .bio-title{
+      color:var(--muted);
+      font-size:clamp(13px,1.4vw,15px);
+      margin:0 0 20px;
+      font-weight:500;
+      letter-spacing:.03em;
+    }
+
+    .bio-opening{
+      color:var(--ink);
+      font-size:clamp(14px,1.6vw,17px);
+      line-height:1.7;
+      margin:0 0 20px;
+      opacity:.92;
+    }
+
+    .bio-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--teal);
+      font-size:clamp(13px,1.4vw,15px);
+      font-weight:600;
+      cursor:pointer;
+      border:none;
+      background:none;
+      padding:0;
+      transition:.2s ease;
+      letter-spacing:.02em;
+    }
+    .bio-toggle:hover{ opacity:.75; }
+    .bio-toggle .arrow{
+      display:inline-block;
+      transition:transform .3s ease;
+    }
+    .bio-toggle.open .arrow{ transform:rotate(180deg); }
+
+    .bio-full{
+      display:none;
+      margin-top:28px;
+      padding-top:28px;
+      border-top:1px solid var(--card-border);
+    }
+    .bio-full.visible{ display:block; }
+
+    .bio-full p{
+      color:var(--ink);
+      font-size:clamp(14px,1.5vw,16px);
+      line-height:1.75;
+      margin:0 0 18px;
+      opacity:.88;
+    }
+    .bio-full p:last-child{ margin-bottom:0; }
+
+    @media (max-width: 640px) {
+      .bio-top{ flex-direction:column; align-items:center; }
+      .bio-photo, .bio-photo-placeholder{ width:130px; height:160px; }
+      .bio-card{ padding:24px 20px; }
+      .bio-intro{ text-align:center; }
+      .bio-toggle{ margin:0 auto; display:flex; }
     }
 
     @media (max-width: 768px) {
@@ -154,7 +338,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .cta, .card{transition:none}
+      .cta, .card, .cta-contact{ transition:none }
+      .bio-toggle .arrow{ transition:none }
     }
   </style>
 </head>
@@ -175,11 +360,11 @@
         </div>
 
         <p class="mission" style="text-align: center; max-width: 860px; margin: 22px auto 30px; padding: 0 20px; box-sizing: border-box;">
-          Straventis helps organizations connect strategy and innovation to achieve lasting growth.
+          Building growth ... when the going gets tough ... or into the unknown.
           <div style="height: 12px;"></div>
-          <span style="font-size: 22px; display: inline-block; line-height: 1.5;">
-            We work with leadership, product, and innovation teams to build, optimize, and govern growth portfolios and to identify, validate, and scale new opportunities.<br>
-            We bring strategic clarity, market insight, and venture discipline to translate intent into execution.
+          <span style="font-size: 22px; display: inline-block; line-height: 1.6;">
+            We work with leadership, product, and innovation teams to bring strategic clarity, market insight, and venture discipline to turn strategic ambition into focused portfolios, validated and scaled opportunities, and commercial results.<br><br>
+            We support businesses at any stage — navigating major strategic transitions, expanding into new markets, segments, or geographies, or building the capability to pursue the next phase of growth.
           </span>
         </p>
 
@@ -192,54 +377,113 @@
         </div>
       </header>
 
+      <!-- ── BIO SECTION ── -->
+      <section class="bio-section" id="about">
+        <div class="bio-section-label">About</div>
+        <div class="bio-card">
+          <div class="bio-top">
+
+            <!-- Photo: replace src with actual image path when ready -->
+            <div class="bio-photo">
+              <img src="images/andreas-renken.jpg" alt="Andreas Renken" onerror="this.parentElement.style.display='none'; document.getElementById('bio-photo-placeholder').style.display='flex';">
+            </div>
+            <div class="bio-photo-placeholder" id="bio-photo-placeholder" style="display:none;">
+              Photo<br>coming<br>soon
+            </div>
+
+            <div class="bio-intro">
+              <p class="bio-name">Andreas Renken</p>
+              <p class="bio-title">Founder, Straventis</p>
+              <p class="bio-opening">
+                Andreas Renken founded Straventis on 25 years at three of the world's leading industrial materials companies, DuPont, Eastman, and Bekaert, diagnosing and aligning organizational readiness, defining growth strategies, building and governing innovation portfolios, and identifying and exploring new markets and ventures in commoditizing businesses where growth had to be created, and then captured.
+              </p>
+              <button class="bio-toggle" id="bioToggle" onclick="toggleBio()" aria-expanded="false" aria-controls="bioFull">
+                Read full bio <span class="arrow">↓</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Full bio — hidden until click -->
+          <div class="bio-full" id="bioFull">
+            <p>At DuPont, where Andreas spent nearly two decades, he progressed from R&D and application development to global segment leadership, taking full ownership of where the Kevlar® tire and industrial business should grow, how to pursue it, and what the organization needed to get there.</p>
+
+            <p>Earlier, he served as an internal business management consultant, diagnosing and optimizing product management, pricing strategy, customer segmentation, and supply chain processes, experience that directly shaped his approach to organizational readiness and execution alignment.</p>
+
+            <p>As Global Segment Leader, he defined and governed a global innovation and product portfolio across Europe, the Americas, and Asia, aligned distributed technical and commercial teams around shared priorities, established open innovation partnerships and joint development agreements, and introduced market-driven ways of working and new methodologies to sharpen early-stage opportunity identification and accelerate commercial impact.</p>
+
+            <p>The results were tangible: 12% annual segment growth, a DuPont Engineering Excellence Award for a program generating $54M in projected new revenue through new product introduction and customer adoption, eleven patents including the foundational patent for DuPont's Vizilon® thermoplastic composites platform, and election as Chair of the CenTire industry-university research consortium.</p>
+
+            <p>At Eastman, Andreas led product and application strategy for the EMEA rubber additives business, building direct relationships with customer technical leaders and executives, uncovering unmet needs, and translating market and customer insight into concrete growth projects. He led market exploration activities, closed seven growth opportunities generating over $4.5M in annual recurring revenue, initiated five additional innovation projects, and maintained full commercial momentum through the COVID period by developing remote collaboration tools to keep customer engagements at full speed.</p>
+
+            <p>At Bekaert, Andreas diagnosed a structural misalignment between the division's innovation ambition and its organizational readiness, and defined a 10-year growth and innovation strategy. He received the full endorsement of the Group CEO and Chairman of the Board, who entrusted him with its execution.</p>
+
+            <p>He identified the need for improved product portfolio management and created the regional product management functions, to simplify legacy complexity.</p>
+
+            <p>Over three years, he built a market exploration team and transformed the division from a technology-push model to a market-driven growth engine, building and governing a €500M+ innovation portfolio across core and adjacent segments, grounded in deep customer and market insight. He also identified and validated new disruptive platforms to prepare the mature and commoditizing business for its next growth phase, away from an increasingly competitive environment.</p>
+
+            <p>His work at Bekaert was recognised with two awards: the 2024 Bekaert Sustainability Innovation Award and the prestigious Tire Technology Material Innovation of the Year award in 2025.</p>
+
+            <p>Andreas holds a PhD in Polymers and Biomaterials from EPFL Lausanne and a Master's in Chemical Engineering from ETH Zurich. He is fluent in English, French, and German.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── WHERE WE CAN HELP ── -->
+      <div style="color: var(--teal); font-size: 28px; font-weight: 600; margin-bottom: 24px; text-align: center;">
+        Where we can help
+      </div>
+
       <main id="focus" aria-label="Focus areas" style="max-width: 1000px; margin-left: auto; margin-right: auto" class="hovered-element">
 
-        <div style="display: flex; justify-content: center; margin-bottom: 18px; min-height: 350px;" class="hovered-element">
-          <a class="card hovered-element" href="#engagements" style="width: calc(50% - 9px); height: auto; min-height: 380px;">
+        <div style="display: flex; justify-content: center; margin-bottom: 18px;" class="hovered-element">
+          <a class="card hovered-element" href="#engagements" style="width: calc(50% - 9px);">
             <h3>Readiness Assessment &amp; Organizational Alignment</h3>
             <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
             <p>Assessing and aligning organization, portfolio, and technical readiness level to enable successful deployment and scalable growth.</p>
           </a>
         </div>
 
-        <div style="display: flex; justify-content: center; gap: 18px; margin-bottom: 18px; min-height: 300px;" class="hovered-element">
+        <div style="display: flex; justify-content: center; gap: 18px; margin-bottom: 18px;" class="hovered-element">
           <a class="card hovered-element" href="#engagements" style="flex: 1;">
-            <h3>Innovation &amp; Growth Strategy</h3>
-            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px; display:block; flex: 0 0 auto;"></div>
+            <h3>Growth &amp; Innovation Strategy</h3>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
             <p>Building governed growth portfolios with clear priorities, investment logic, and execution focus.</p>
           </a>
 
           <a class="card hovered-element" href="#engagements" style="flex: 1;">
-            <h3>Voice of Customer</h3>
-            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px; display:block; flex: 0 0 auto;"></div>
-            <p>Translating customer and segment insight into clear opportunity spaces and portfolio direction.</p>
+            <h3>Market Insight &amp; Opportunity Definition</h3>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+            <p>Translating market and customer insight into clear opportunity spaces, portfolio direction, and development priorities.</p>
           </a>
         </div>
 
-        <div style="display: flex; justify-content: center; gap: 18px; min-height: 300px;">
+        <div style="display: flex; justify-content: center; gap: 18px;">
           <a class="card hovered-element" href="#engagements" style="flex: 1;">
-            <h3>Go-to-Market Strategy &amp; Market Exploration</h3>
-            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px; display:block; flex: 0 0 auto;"></div>
-            <p>Defining where to play and validating growth opportunities through focused market engagement.</p>
+            <h3>New Market &amp; Segment Exploration</h3>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+            <p>Identifying and assessing new market, segment, or geographic opportunities, and defining where and how to start, from initial exploration through to entry strategy.</p>
           </a>
 
           <a class="card hovered-element" href="#engagements" style="flex: 1;">
             <h3>Venture Exploration &amp; Assessment</h3>
-            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px; display:block; flex: 0 0 auto;"></div>
-            <p>Evaluating and de-risking new business opportunities through structured validation and staged investment.</p>
+            <div style="width: 20%; height: 4px; background-color: var(--red); margin: 12px auto; border-radius: 2px;"></div>
+            <p>Evaluating and de-risking new business opportunities, from new platforms and business segments to M&amp;A assessment and venture-backed growth, through structured validation and staged investment.</p>
           </a>
         </div>
 
       </main>
 
-      <!-- Engagements -->
+      <!-- ── ENGAGEMENTS ── -->
       <div class="engagement" style="max-width: 900px; margin: 70px auto 30px; padding: 0 20px;">
 
-        <div id="engagements" style="color: var(--teal); font-size: 28px; font-weight: 600; margin-bottom: 30px; text-align: center;">
+        <div id="engagements" style="color: var(--teal); font-size: 28px; font-weight: 600; margin-bottom: 16px; text-align: center;">
           Selected advisory and leadership engagements
         </div>
 
-        <!-- 1) Reinforcement -->
+        <div style="color: var(--muted); font-size: 16px; text-align: center; margin-bottom: 30px; font-style: italic;">
+          A selection of recent engagements, described as we actually work: starting with the situation, not the solution.
+        </div>
+
         <details>
           <summary>Restoring differentiation in a commoditizing reinforcement business</summary>
           <div class="engagement-full-title">
@@ -258,7 +502,6 @@
           </ul>
         </details>
 
-        <!-- 2) DuPont -->
         <details>
           <summary>Transforming a fragmented global pipeline into a market-driven growth roadmap</summary>
           <div class="engagement-full-title">
@@ -277,7 +520,6 @@
           </ul>
         </details>
 
-        <!-- 3) €500M+ Portfolio -->
         <details>
           <summary>Restoring pipeline continuity and decision discipline in a €500M+ innovation portfolio</summary>
           <div class="engagement-full-title">
@@ -296,7 +538,6 @@
           </ul>
         </details>
 
-        <!-- 4) Deep-tech scale-up -->
         <details>
           <summary>Restoring execution momentum in a deep-tech scale-up</summary>
           <div class="engagement-full-title">
@@ -317,9 +558,12 @@
 
       </div>
 
-      <div style="text-align:center; margin-top: 28px;">
-        <a class="cta" href="mailto:contact@stravent.is?subject=Straventis%20%7C%20Intro%20call">Request a short intro call</a>
-      </div>
+      <!-- ── CTA TILE ── -->
+      <a class="cta-contact" href="mailto:contact@stravent.is?subject=Straventis%20%7C%20Intro%20call">
+        <h3>Let's talk</h3>
+        <p>A focused discussion of where you are and whether we can help.</p>
+        <span class="btn">Send me a message →</span>
+      </a>
 
       <footer>
         <span class="logo-highlight">Straventis</span> —
@@ -333,5 +577,22 @@
 
     </div>
   </div>
+
+  <script>
+    function toggleBio() {
+      const full = document.getElementById('bioFull');
+      const toggle = document.getElementById('bioToggle');
+      const isOpen = full.classList.contains('visible');
+      full.classList.toggle('visible', !isOpen);
+      toggle.classList.toggle('open', !isOpen);
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.querySelector('.arrow').textContent = isOpen ? '↓' : '↑';
+      if (!isOpen) {
+        full.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  </script>
+
 </body>
 </html>
+
